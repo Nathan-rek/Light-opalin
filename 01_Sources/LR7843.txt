@@ -1,0 +1,38 @@
+DESCRIPTION
+This MOSFET module with optoisolation uses the LR7843 N-Channel logic compatible MOSFET with ultra low Rds(on) for moderate to higher current low-side switching applications of up to 15A continuous.
+
+PACKAGE INCLUDES:
+LR7843 MOSFET Control Module
+3-pin Screw Terminal
+2-pin Screw Terminal
+Small male header strip
+KEY FEATURES OF LR7843 MOSFET CONTROL MODULE:
+One switching output
+Ultra low 3.3mΩ Rds(on) resistance
+2.5V – 20V input control voltage with optoisolation
+6 – 28V output switching voltage
+15A continuous current handling capability (See notes below)
+3.3 and 5V logic compatible (See notes below)
+The modules utilizes the LR7843 N-channel MOSFET that has an ultra low Rds(on) resistance of 3.3mΩ typical.
+
+These modules support about 15A of continuous current with a load voltage of 12V.  If driven with PWM, the maximum peak current can be greater up to 30A or more.
+
+The design of these modules includes an optoisolator on the input so the input is biased from the output load voltage and is independent of logic levels used for the drive signal.  A 3.3V input will drive as much current as a 5V input for instance.
+
+Note that the module does not have a fly-back diode on the board.  If using the module with inductive loads, an external fly-back diode should be used to avoid possible damage.
+
+Theory of Operation
+LR7843 MOSFET Control Module Schematic
+LR7843 MOSFET Control Module Schematic
+
+The module includes a PC817 optoisolator which provides electrical isolation between the high powered MOSFET side and the logic signals used to control the module.  If something goes wrong and you burn up the MOSFET, it should not damage the MCU being used to control it.
+
+The MCU PWM input to the module drives the internal LED side of the optoisolator.  This input includes a 1K ohm series current limiting resistor to keep the current through the LED at safe levels which allows the input to be driven by up to a 20V input or even higher if you are not using an MCU.
+
+When the PWM input signal is low or disconnected, the internal LED in the optoisolator is off which in turn keeps the phototransistor output turned off.  With the phototransistor off, the gate of the MOSFET is pulled to ground by a 4.7K resistor.  This keeps the MOSFET turned off and the load is disconnected from ground and disbled.
+
+A logic high on the PWM input turns on the internal optoisolator LED which turns on the phototransistor.  This creates a voltage divider composed primarily of two 4.7K resistors.  This biases the gate at 50% of the power supply voltage which turns on the MOSFET.  If a 12V power supply is used, the gate will be at 6V.
+
+Since the maximum gate voltage available to turn on the MOSFET is 50% of the power supply voltage, that limits the power supply to a minimum of about 6V.  Power dissipation in the MOSFET will be higher with lower power supply voltages and a minimum power supply of 9V is recommended if trying to draw more than a few amps through the module.
+
+When the MOSFET conducts, the load is connected to ground to complete the circuit and the load is powered up.  This also provides a ground for the on-board LED which lights to indicate that the MOSFET is turned on.  A 4.7K resistor limits current through the on-board LED to safe levels over the 6-36V operating range.
