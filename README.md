@@ -1,0 +1,1 @@
+LED control by Touchdesigner and Arduino  by PWM control with MOSFET LR7843 regulation
