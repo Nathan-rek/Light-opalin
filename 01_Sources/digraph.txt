@@ -1,0 +1,67 @@
+digraph G {
+    // Utilisation du moteur dot pour générer un diagramme horizontal
+    graph [layout=dot, fontsize=14, fontname="Consolas", rankdir=LR, ranksep=0.2, nodesep=0.5, bgcolor=lightgrey];
+
+    subgraph cluster_general {
+        label = "Instalation Son-Lumière";
+        color=lightblue;
+        style=filled;
+
+        subgraph cluster_0 {
+            label = "Patch Max";
+            color=lightgrey;
+            style=filled;
+            node [style=filled,color=white, fontsize=12, fontname="Consolas"];
+            Micro -> "patch MaxMSP" -> "Carte son";
+        }
+        
+        subgraph cluster_1 {
+            label = "Arduino et Mosfet";
+            color=white;
+            style=filled;
+            node [style=filled, fontsize=12, fontname="Consolas"];
+            "patch MaxMSP" -> Arduino [label="Variation de 0 - 255", dir=forward];
+            Arduino -> Mosfet [label="Signal PWM de 0 - 255 - PIN 9", dir=forward];
+            Mosfet -> Sucre [label=" Variation 10 - 25V", dir=forward];
+            Mosfet -> Sucre [label=" -", dir=forward];
+
+            " Alimentation 25V " -> Mosfet [label=" - ", dir=forward];
+            " Alimentation 25V " -> Sucre [label=" + ", dir=forward];
+
+            // Ajout de deux liens entre Arduino et Mosfet
+            Arduino -> Mosfet [label="GND", dir=forward];
+        }
+
+        subgraph cluster_son {
+            label = "Systèmes son";
+            color=lightgrey;
+            style=filled;
+            node [style=filled, fontsize=12, fontname="Consolas"];
+            "Carte son" -> Enceintes1 [label="Enceinte 1", fontsize=10];
+            "Carte son" -> Enceintes2 [label="Enceinte 2", fontsize=10];
+            "Carte son" -> Enceintes3 [label="Enceinte 3", fontsize=10];
+            "Carte son" -> Enceintes4 [label="Enceinte 4", fontsize=10];
+            "Carte son" -> Enceintes5 [label="Enceinte 5", fontsize=10];
+            "Carte son" -> Basse [label="Basse", fontsize=10];
+        }
+
+        subgraph cluster_opalin {
+            label = "boite Opalin";
+            color=lightgrey;
+            style=filled;
+            node [style=filled, fontsize=12, fontname="Consolas"];
+            Sucre -> LEDBoard1 [label="+/-", dir=forward];
+            Sucre -> LEDBoard2 [label="+/-", dir=forward];
+        }
+
+        // Définition des attributs de style pour les nœuds
+        " Alimentation 25V " [shape=parallelogram, style=filled, color=grey, fontsize=12, fontname="Consolas"];
+        LEDBoard1 [shape=box3d, style=filled, color=white, fontsize=12, fontname="Consolas"];
+                Arduino [shape=box, style=filled, color=grey, fontsize=12, fontname="Consolas"];
+
+        LEDBoard2 [shape=box3d, style=filled, color=white, fontsize=12, fontname="Consolas"];
+        Micro [shape=doublecircle, fontsize=12, fontname="Consolas"];
+        Mosfet [shape=box, fontsize=12, fontname="Consolas"];
+        "patch MaxMSP" [shape=note, fontsize=12, fontname="Consolas"];
+    }
+}
