@@ -9,6 +9,7 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     int pwmValue = Serial.parseInt();
+    Serial.println(pwmValue);
     analogWrite(pwmPin, pwmValue);
   }
 }
