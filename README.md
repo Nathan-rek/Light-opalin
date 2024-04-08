@@ -1,15 +1,42 @@
- ## Préambule
-Un espace composée d'objet peut être approché comme non pas un ensemble de substance unique et centipète mais un ensemble d'interactions distinct qui révèle non pas un tout mais des possibilités de rapport.
-Notre installation tente a entrevoir par un appareillage technique de relever les possibilité d'interaction entre les objets qui le compose. Son et Lumière sont deux espaces sensibles que l'on met dans un rapport particulier tout en révélant d'autre manières dont ses objets ont de rentrer en interactions avec d'autres objets.
-Un son génératif se compose avec l'espace, un appareil qui joue la fonction d'un supra écho. L'appareil sonore enregistre et remodèle des sons de l'espace. En jouant en permanence il devient un écho constant, une mémoire propre au lieux et a sa capacité d'expression.
-De ce premier rapport sonore en nait un autre. Un panneaux lumineux se voit changer en fonction de ce que le dispositif sonore joue. Il prend en compte des paramètres qui lui sont propres des propriétés sensibles qu'il transforme en d'autre propriété sensibles . Le panneaux varie en intensité lumineuse ce qui lui permet de véhiculer un rapport fluctuant avec tout les objets matérielles présent dans l'espace. Accentuant les ombre porté ou obstruant entièrement l'espace la Lumière vient dévoiler ses possibilité d'interaction spatiale. Or ces condition d'interactions sont elle aussi orchestre par un système de relation entre émission réception.[1]  L'installation ne se veut pas être un appareille d'autonomie orchestrant son rapport au monde, Elle est l'intensification de rapport déjà présent mais dont les possibilités d'interactions se mutualise. Proposant par le sensible une relation qui n'est pas que celle d'un corps avec un objet mais des objets entre eux
+## Préambule
+Un espace composé d'objets peut être abordé non pas comme un ensemble de substances uniques et singulières, mais comme un ensemble d'interactions distinctes qui révèlent non pas une totalité, mais des possibilités de relations.
+
+Notre installation tente de comprendre, à travers un équipement technique, les possibilités d'interaction entre les objets qui la composent. Le son et la lumière sont deux dimensions sensibles que nous mettons en rapport particulier, tout en révélant d'autres manières dont ces objets peuvent interagir avec l'espace.
+
+Un son généré se mêle à l'espace, un appareil qui agit comme un supra-écho. Cet appareil sonore enregistre et remodelle les sons de l'espace. Il utilise sa propre cognition pour sélectionner parmi tous les sons entendus ceux qu'il reproduit et ceux qu'il ignore. En jouant en permanence, il devient un écho constant, une mémoire propre au lieu et à sa capacité d'expression.
+
+De cette première interaction sonore naît une interaction lumineuse. Un panneau lumineux se modifie en fonction de ce que le dispositif sonore produit. Il prend en compte des paramètres qui lui sont propres, des propriétés sensibles qu'il transforme en d'autres propriétés sensibles. Le panneau varie en intensité lumineuse, ce qui lui permet d'exprimer une relation changeante avec tous les objets matériels présents dans l'espace, accentuant les ombres portées ou obstruant entièrement l'espace. La lumière dévoile ainsi ses possibilités d'interactions spatiales. Cependant, ces conditions d'interaction sont également orchestrées par un système de relation entre émission et réception. L'installation ne prétend pas être un appareil autonome orchestrant sa propre relation au monde. Elle intensifie des relations déjà présentes, mais dont les possibilités d'interactions se conjuguent. En proposant par le sensible une relation qui n'est pas seulement celle d'un corps avec un objet, mais des objets entre eux.
+
+## Traces -Développement
+Dans un premier temps j'ai exploré les relations son-lumière via ruban LED WS. En traduisant avec un FFT les variations d'une musique afin de faire varier les phases d'un gradiant sur l'axe X qui ensuite envoi ses coordonées de couleur au ruban. En passant par le [CHOP Serial](https://derivative.ca/UserGuide/Serial_CHOP) qui permet de rentrer en communication serial avec des composants comme Arduino. J'intègre un code capable de recevoir du serial et de l'envoyer sur une Pin de mon arduino.  Cela me permet d'envoyer en serial la valeur RGB de chaque LED : [touch-designer file: serial-led.toe](https://github.com/Nathan-rek/Light-opalin/tree/master/02_Prod/touchdesigner) | [Arduino File](https://github.com/Nathan-rek/Light-opalin/tree/master/02_Prod/arduino/neopixel). 
+
+<br>
+Musique: [*Do While*, Oval](https://oval.bandcamp.com/track/do-while) 
+*<video controls src="static/img/light-opalin/ruban-led.mp4"> </video>
+<img src="static/img/light-opalin/graphviz-td-ruban.png">*
+
+
+Ensuite, j'ai cherché comment moduler une tension électrique, notamment sur des panneaux [LEDVANCE PANEL 600 36W | 4000K | 4320 lm | White Aluminuim Housing](https://benelux.ledvance.com/fr/professionnels/produits/luminaires/luminaires-professionnels/luminaires-panel/panel-ip54/panel-ip54-de-forte-puissance--600-x-600-mm-c8598?productId=137324). J'utilise le même FFT qui me permet d'analyser une musique cette fois pour transformer un son en une variation de 0 - 255, ordre de grandeur propre aux variations PWM (modulation de largeur d'impulsion). Cela me permet d'envoyer un signal PWM au Mosfet, qui regule la tension envoyée aux panneaux LED. Transformant la variation musical en variation de tensoin.
+<br>
+Musique: [*QKThr*, Aphex Twin](https://www.youtube.com/watch?v=9wCfNFmpL1s)
+*<video controls src="static/img/light-opalin/LED-num.mp4"> </video>
+<img src="static/img/light-opalin/graphviz-td-LEDboard.png">*
+
+Ensuite, j'ai inclus un deuxième panneau au module en superposant simplement les câbles positif et négatif de celui-ci, sans effectuer de modifications réelles.
+<br>
+Musique: [*Blink*, Hiroshi Yoshimura](https://www.youtube.com/watch?v=0RHmeCjqnfw) 
+*<video controls src="static/img/light-opalin/2LED.MP4"> </video>
+<img src="static/img/light-opalin/graphviz-td-2LEDboard.png">*
+
+
 ## Documentation
 ### MaxMPS
-	- Marie...
+Marie...
 ### Arduino
-	- Le Panneaux lumineux varie via la variation d'un MOSFET(LR7843 MOSFET) qui regule la tension envoyé au paneaux. Le paneaux est a la fois branché
+Musique to LED
+- TouchDesigner to Arduino: 
 
-## Footnotes
-	
-[^1]: Longo, Anna, « *Une esthétique spéculative est-elle possible ?* »:, Cahiers critiques de philosophie, no. 1, janvier 2018, pp. 91‑112., " *les objets n’interagissent pas directement, mais au moyen de certaines propriétés sensibles se manifestant dans le cadre d’un rapport particulier* "
-	
+Les panneaux lumineux varient via la variation d'un MOSFET(LR7843 MOSFET) qui régule la tension envoyée aux paneaux. Pour Réguler la tension j'envoie une variation en PWM à un MOSFET.
+
+<img src="static/img/light-opalin/graphviz.png">
+
