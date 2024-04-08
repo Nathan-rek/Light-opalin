@@ -10,33 +10,15 @@ De cette première interaction sonore naît une interaction lumineuse. Un pannea
 ## Traces -Développement
 Dans un premier temps j'ai exploré les relations son-lumière via ruban LED WS. En traduisant avec un FFT les variations d'une musique afin de faire varier les phases d'un gradiant sur l'axe X qui ensuite envoi ses coordonées de couleur au ruban. En passant par le [CHOP Serial](https://derivative.ca/UserGuide/Serial_CHOP) qui permet de rentrer en communication serial avec des composants comme Arduino. J'intègre un code capable de recevoir du serial et de l'envoyer sur une Pin de mon arduino.  Cela me permet d'envoyer en serial la valeur RGB de chaque LED : [touch-designer file: serial-led.toe](https://github.com/Nathan-rek/Light-opalin/tree/master/02_Prod/touchdesigner) | [Arduino File](https://github.com/Nathan-rek/Light-opalin/tree/master/02_Prod/arduino/neopixel). 
 
-<br>
-Musique: [*Do While*, Oval](https://oval.bandcamp.com/track/do-while) 
-*<video controls src="static/img/light-opalin/ruban-led.mp4"> </video>
-<img src="static/img/light-opalin/graphviz-td-ruban.png">*
 
 
 Ensuite, j'ai cherché comment moduler une tension électrique, notamment sur des panneaux [LEDVANCE PANEL 600 36W | 4000K | 4320 lm | White Aluminuim Housing](https://benelux.ledvance.com/fr/professionnels/produits/luminaires/luminaires-professionnels/luminaires-panel/panel-ip54/panel-ip54-de-forte-puissance--600-x-600-mm-c8598?productId=137324). J'utilise le même FFT qui me permet d'analyser une musique cette fois pour transformer un son en une variation de 0 - 255, ordre de grandeur propre aux variations PWM (modulation de largeur d'impulsion). Cela me permet d'envoyer un signal PWM au Mosfet, qui regule la tension envoyée aux panneaux LED. Transformant la variation musical en variation de tensoin.
 <br>
-Musique: [*QKThr*, Aphex Twin](https://www.youtube.com/watch?v=9wCfNFmpL1s)
-*<video controls src="static/img/light-opalin/LED-num.mp4"> </video>
-<img src="static/img/light-opalin/graphviz-td-LEDboard.png">*
 
 Ensuite, j'ai inclus un deuxième panneau au module en superposant simplement les câbles positif et négatif de celui-ci, sans effectuer de modifications réelles.
 <br>
-Musique: [*Blink*, Hiroshi Yoshimura](https://www.youtube.com/watch?v=0RHmeCjqnfw) 
-*<video controls src="static/img/light-opalin/2LED.MP4"> </video>
-<img src="static/img/light-opalin/graphviz-td-2LEDboard.png">*
 
-
-## Documentation
-### MaxMPS
-Marie...
-### Arduino
-Musique to LED
-- TouchDesigner to Arduino: 
 
 Les panneaux lumineux varient via la variation d'un MOSFET(LR7843 MOSFET) qui régule la tension envoyée aux paneaux. Pour Réguler la tension j'envoie une variation en PWM à un MOSFET.
 
-<img src="static/img/light-opalin/graphviz.png">
 
