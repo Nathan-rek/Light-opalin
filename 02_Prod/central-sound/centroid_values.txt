@@ -1,0 +1,2 @@
+Max Centroid: 0.45914140121758024
+Min Centroid: 0.0
