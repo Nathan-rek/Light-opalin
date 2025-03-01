@@ -1,6 +1,6 @@
 # Dossiers à ignorer
 ./04_Preview/
-./03_Render/
+
 
 01_Sources\FastLED-SoundReactive
 01_Sources\Pixel-Mapping-with-TouchDesigner-Arduino-Wsb2812b-Addressable-LED-Strip
