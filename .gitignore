@@ -1,3 +1,9 @@
-./04_preview
-./03_Render
-01_Sources
+# Dossiers à ignorer
+./04_Preview/
+./03_Render/
+./01_Sources/
+
+# Ignorer également les sous-dossiers
+./04_Preview/**/*
+./03_Render/**/*
+./01_Sources/**/*
