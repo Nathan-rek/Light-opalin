@@ -1,3 +1,7 @@
+
+![](https://nathanprost.fr/static/img/light-opalin/preview.mp4)
+
+
 ## Préambule
 
 Notre installation tente de comprendre, à travers un équipement technique, les possibilités d'interaction entre les objets qui composent un espace. Le son et la lumière sont deux dimensions sensibles que nous mettons en rapport particulier afin de soulever un ensemble d'interactions distinctes qui révèlent non pas une totalité, mais des possibilités de relations.
@@ -7,7 +11,7 @@ Un microphone enregistre en permanence les sons de l'espace et utilise ses enreg
 <br>
 
 
-↱ [Jury B2](jury-b2)
+↱ [Jury B2](https://nathanprost.fr/jury-b2)
 
 <hr>
 
